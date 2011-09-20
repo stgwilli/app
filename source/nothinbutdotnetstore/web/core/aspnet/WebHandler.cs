@@ -16,7 +16,7 @@ namespace nothinbutdotnetstore.web.core.aspnet
 
         public void ProcessRequest(HttpContext context)
         {
-            throw new NotImplementedException();
+            front_controller.process(request_factory.create_request_from(context));
         }
 
         public bool IsReusable
