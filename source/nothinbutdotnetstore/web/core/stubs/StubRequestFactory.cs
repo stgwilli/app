@@ -11,6 +11,10 @@ namespace nothinbutdotnetstore.web.core.stubs
 
         class StubRequest : IContainRequestInformation
         {
+            public InputModel get_input_model<InputModel>()
+            {
+                return default(InputModel);
+            }
         }
     }
 }

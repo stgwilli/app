@@ -9,5 +9,10 @@ namespace nothinbutdotnetstore.web.application.catalogbrowsing.stubs
         {
             return Enumerable.Range(1, 100).Select(x => new Department{name = x.ToString("Department 0")});
         }
+
+        public IEnumerable<Department> get_departments_for(Department department)
+        {
+            return Enumerable.Range(1, 100).Select(x => new Department { name = x.ToString("Subdepartment 0")});
+        }
     }
 }
