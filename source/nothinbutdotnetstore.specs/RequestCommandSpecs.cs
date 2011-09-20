@@ -20,7 +20,7 @@ namespace nothinbutdotnetstore.specs
             Establish c = () =>
             {
                 request = fake.an<IContainRequestInformation>();
-                depends.on<RequestMatch>(x => true);
+                depends.on<RequestMatch>(x => x.Equals(request));
             };
 
             Because b = () =>
