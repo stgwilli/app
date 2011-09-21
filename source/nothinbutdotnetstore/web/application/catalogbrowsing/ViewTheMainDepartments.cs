@@ -17,7 +17,7 @@ namespace nothinbutdotnetstore.web.application.catalogbrowsing
         }
 
         public ViewTheMainDepartments():this(Stub.with<StubDepartmentRepository>(),
-            new StubDisplayEngine())
+           Stub.with<StubDisplayEngine>())
         {
         }
 

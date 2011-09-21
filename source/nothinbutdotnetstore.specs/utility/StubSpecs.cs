@@ -19,6 +19,8 @@ namespace nothinbutdotnetstore.specs.utility
         It should_return_the_stubbed_item = 
             () => result.ShouldBeOfType<StubDisplayEngine>();
 
+        It should_not_be_null = () => result.ShouldNotBeNull();
+
 
         static StubDisplayEngine result;
     }
