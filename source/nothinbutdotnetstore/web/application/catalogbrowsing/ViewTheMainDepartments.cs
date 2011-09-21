@@ -1,6 +1,7 @@
 ﻿using nothinbutdotnetstore.web.application.catalogbrowsing.stubs;
 using nothinbutdotnetstore.web.core;
 using nothinbutdotnetstore.web.core.stubs;
+using nothinbutdotnetstore.web.core.utility;
 
 namespace nothinbutdotnetstore.web.application.catalogbrowsing
 {
