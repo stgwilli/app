@@ -13,9 +13,16 @@ CodeFile="DepartmentBrowser.aspx.cs"
                 %>
               <%-- for each department --%>
               <tr class="ListItem">
+
+              <!-- if (department.has_products) -->
+                <!-- http://localhost/viewtheproductsinadepartmentinputmodel/1 -->
+              <!-- else -->
+                <!-- http://localhost/viewthepartmentsofadepartmentrequest/1 -->
+
+
                <td><a href="<%= Link.to_run<ViewTheDepartmentsOfADepartmentRequest>()
-                                    .conditionally<ViewTheProductsInADepartmentInputModel>(department.has_products))
-                                    .include(department, x => x.id)
+                                    .conditionally<ViewTheProductsInADepartmentInputModel>(() => department.has_products)
+                                    .include(department, x => x.id) 
                 %>"><%= department.name %></a></td>
            	  </tr>        
               <% } %>

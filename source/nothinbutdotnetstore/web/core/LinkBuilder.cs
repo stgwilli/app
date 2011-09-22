@@ -1,15 +1,17 @@
 namespace nothinbutdotnetstore.web.core
 {
-    public class LinkBuilder : IBuildLinks
+    public class LinkBuilder<Request> : IBuildLinks
     {
-        public LinkBuilder(string resource_name)
+        RequestNameStrategy request_name_strategy;
+
+        public LinkBuilder(RequestNameStrategy request_name_strategy)
         {
-            resource = resource_name;
+            this.request_name_strategy = request_name_strategy;
         }
 
-        public string resource
+        public override string ToString()
         {
-            get; private set;
+            return request_name_strategy(typeof(Request));
         }
     }
 }
