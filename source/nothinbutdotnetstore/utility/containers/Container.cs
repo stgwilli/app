@@ -2,9 +2,9 @@
 {
     public class Container : IFetchDependencies
     {
-        IFindTypeFactories dependency_factories;
+        IFindFactoriesThatCreateDependencies dependency_factories;
 
-        public Container(IFindTypeFactories dependency_factories)
+        public Container(IFindFactoriesThatCreateDependencies dependency_factories)
         {
             this.dependency_factories = dependency_factories;
         }

@@ -15,7 +15,10 @@ namespace nothinbutdotnetstore.specs
         {
             Establish context = () =>
             {
-                find_type_factories = depends.on<IFindTypeFactories>();
+                find_type_factories = depends.on<IFindFactoriesThatCreateDependencies>();
+
+                find_type_factories.setup(x => x.factory_for<FakeType>())
+                    .Return(type_factory);
             };
 
             Because b = () => 
@@ -24,7 +27,11 @@ namespace nothinbutdotnetstore.specs
             It should_get_the_type_factory_based_on_the_specified_dependency =
                 () => find_type_factories.received(x => x.factory_for<FakeType>());
 
-            static IFindTypeFactories find_type_factories;
+            It should_ask_the_factory_to_create_an_instance_of_the_specified_type = 
+                () => type_factory.received(x => x.create_an_instance_of(typeof(FakeType)));
+
+            static IFindFactoriesThatCreateDependencies find_type_factories;
+            static ICreateOneDependency type_factory;
         }
     }
 
