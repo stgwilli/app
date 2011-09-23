@@ -27,16 +27,8 @@ namespace nothinbutdotnetstore.tasks
 
         static void populate_factories()
         {
-            factories.Add(new SimpleTypeKey((typeof(IFindCommands))), new SimpleDependencyFactory(() => new StubCommandRegistry()));
+            factories.Add(new SimpleTypeKey((typeof(IFindCommands))), new SimpleDependencyFactory(() => new CommandRegistry(Depends)));
             factories.Add(new SimpleTypeKey(typeof(IProcessRequests)), new SimpleDependencyFactory(() => new FrontController(Depends.on.a<IFindCommands>())));
-        }
-    }
-
-    internal class StubCommandRegistry : IFindCommands
-    {
-        public IProcessOneRequest get_the_command_that_can_process(IContainRequestInformation request)
-        {
-            throw new NotImplementedException();
         }
     }
 }
