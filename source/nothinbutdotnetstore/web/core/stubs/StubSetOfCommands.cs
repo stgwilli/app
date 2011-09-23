@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using nothinbutdotnetstore.utility.containers;
 using nothinbutdotnetstore.web.application.catalogbrowsing;
 using nothinbutdotnetstore.web.application.catalogbrowsing.stubs;
 
@@ -14,7 +15,8 @@ namespace nothinbutdotnetstore.web.core.stubs
 
         public IEnumerator<IProcessOneRequest> GetEnumerator()
         {
-            return null;
+            yield return new RequestCommand(r => true, new QueryFor<IEnumerable<Department>>(new GetTheMainDepartments(), Depends.on.a<IDisplayReports>()));
+            yield return new RequestCommand(r => true, new QueryFor<IEnumerable<Product>>(new GetTheProductsInADepartment(), Depends.on.a<IDisplayReports>()));
         }
 
         public class GetTheMainDepartments : IFetchA<IEnumerable<Department>>
